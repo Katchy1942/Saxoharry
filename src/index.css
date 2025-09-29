@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/* Background → Ivory (#FFFFF0)
+
+Hero Section (Top Banner) → Burgundy (#800020)
+
+Overlay his name + tagline here in Gold (#FFD700) text.
+
+CTA button (“Book Now”) → Gold background, Black text.
+
+Headings / Section Titles → Burgundy (#800020)
+
+Body Text → Black (#000000)
+
+Accents (Icons, Borders, Lines, Hover Effects) → Gold (#FFD700)
+
+Booking Form → Background: Ivory (keep it clean). Labels: Black.
+
+Submit Button: Gold background, Burgundy text → feels premium and distinct.
+
+Footer → Black background with Gold text/icons. */
+
+/* Playfair Display Regular */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Playfair Display Italic */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/Playfair_Display/static/PlayfairDisplay-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Playfair Display Medium */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/Playfair_Display/static/PlayfairDisplay-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Playfair Display SemiBold */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/Playfair_Display/static/PlayfairDisplay-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Playfair Display Bold */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Playfair Display ExtraBold */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/Playfair_Display/static/PlayfairDisplay-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* Playfair Display Black */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/Playfair_Display/static/PlayfairDisplay-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Velista (custom font) */
+@font-face {
+    font-family: 'Velista';
+    src: url('/fonts/velista-font/velista.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Playfair Display', sans-serif;
+    color: #000000;
+    font-size: x-large;
+    font-weight: 500;
+}
