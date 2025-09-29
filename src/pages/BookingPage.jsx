@@ -20,8 +20,20 @@ const BookingPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Form Data:", formData);
-        // send formData to backend here
+
+        const phoneNumber = "2347039883105";
+        const text = `*NEW BOOKING REQUEST*
+
+        Location: ${formData.location}
+        Category: ${formData.category}
+
+        Hi, I'm ${formData.name}
+        Message: ${formData.message}`;
+
+        const encodedText = encodeURIComponent(text);
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+
+        window.open(whatsappURL, "_blank"); // Opens WhatsApp
     };
 
     return (
@@ -114,6 +126,7 @@ const BookingPage = () => {
                             id="message"
                             name="message"
                             rows="4"
+                            required
                             value={formData.message}
                             onChange={handleChange}
                             placeholder="Any extra info about the event..."
