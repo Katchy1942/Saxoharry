@@ -1,42 +1,83 @@
-import { FaArrowAltCircleRight, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Gallery from "../components/Gallery" 
 
 const HomePage = () => {
+    const offerCards = [
+        {
+            src: "/Images/birthdays.png",
+            description: "Birthdays & Celebrations"
+        },
+        {
+            src: "/Images/private_events.jpg",
+            description: "Corporate & Private Events"
+        },
+        {
+            src: "/Images/training.jpg",
+            description: "Training & Workshops"
+        },
+        {
+            src: "/Images/weddings.png",
+            description: "Weddings & Receptions"
+        },
+        {
+            src: "/Images/worship.jpg",
+            description: "Live worship sessions"
+        },
+    ]
+
     return (
-        <div className="bg-[#FFFFF0] text-black font-['Playfair Display']">
+        <div className="text-[#0B0F17] -mt-px">
             <section className="bg-[#800020] min-h-screen text-center relative">
-                <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center">
-                    <div className="md:w-1/2 md:text-left space-y-6">
-                        <p className="text-[#000000]">
-                            Elevating your moments with soulful, unforgettable saxophone melodies — 
-                            perfect for weddings, parties, and special celebrations.
+                <div className="max-w-6xl mx-auto px-4 py-12 flex flex-col-reverse md:flex-row items-center gap-8 md:gap-0">
+                    <div className="md:w-1/2 md:text-left space-y-3 sm:space-y-4 md:space-y-6">
+                        <h1 className="text-[20px] sm:text-xl md:text-2xl leading-tight">
+                            IBARO 'SAXOHARRY' CHIDALU
+                        </h1>
+
+                        <p className="text-[14px] sm:text-[15px] md:text-[17px] leading-snug sm:leading-normal italic max-w-sm mx-auto md:mx-0">
+                            Elevating your moments with soulful, unforgettable saxophone melodies.
                         </p>
+
                         <Link
                             to="/booking"
-                            className="inline-flex items-center justify-center px-8 py-4 rounded-full 
-                                    bg-[#b9b97c]/70 border border-white/30 backdrop-blur-md 
-                                    shadow-inner hover:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.4)] 
-                                    transition-all duration-300 group"
+                            className="inline-block bg-[#0B0F17] text-white px-5 py-3 rounded-[18px] md:rounded-[20px] text-sm sm:text-base hover:opacity-90 transition mt-2 sm:mt-3 md:mt-4"
                         >
-                            <span className="font-bold text-black mr-2">Let's Work</span>
-                            <FaArrowRight className="text-xl transform group-hover:translate-x-1 transition-transform duration-300" />
+                            BOOK FOR YOUR EVENTS
                         </Link>
                     </div>
-                    <div className="md:w-1/2 mt-10 md:mt-0 flex justify-center relative">
-                        <div className="absolute w-80 md:w-[500px] aspect-square rounded-full bg-[#b9b97c]/40 blur-3xl"></div>
+
+                    <div className="md:w-1/2 flex justify-center relative">
+                        <div className="absolute w-64 sm:w-72 md:w-[500px] aspect-square rounded-full bg-[#b9b97c]/40 blur-3xl"></div>
                         <img
-                            src="/Saxoharry-removebg-.png"
+                            src="/Images/Saxoharry-removebg-.png"
                             alt="Saxoharry"
-                            className="w-80 md:w-[500px] relative z-10"
+                            className="w-64 sm:w-72 md:w-[500px] relative z-10"
                         />
                     </div>
                 </div>
             </section>
 
-            <section className="bg-[#b9b97c] py-16">
-                <div className="max-w-6xl mx-auto px-6 text-center">
-                    <Gallery />
+            <section className="bg-[#0B0F17] text-[#eef0f3]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 [20px]:grid-cols-4 xl:grid-cols-5 gap-4 mx-4 py-4">
+                    {offerCards.map((card, index) => {
+                        const rotation = index % 2 === 0 ? 'rotate-3' : '-rotate-3';
+
+                        return (
+                            <div key={index} className="flex flex-col items-center">
+                                <img
+                                    src={card.src}
+                                    alt={card.description}
+                                    className={`
+                                        h-80 sm:h-48 md:h-60 [20px]:h-72
+                                        w-full border-3 rounded-3xl border-black
+                                        object-cover ${rotation}
+                                    `}
+                                />
+                                <p className="italic text-sm mt-2">
+                                    {card.description}
+                                </p>
+                            </div>
+                        );
+                    })}
                 </div>
             </section>
         </div>
