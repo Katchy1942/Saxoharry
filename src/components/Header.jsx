@@ -1,5 +1,33 @@
 import { useState, useRef, useEffect } from "react";
 import { MessageCircle, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const panelVariants = {
+    hidden: {
+        opacity: 0,
+        scale: 0.95,
+        y: -20,
+        transition: {
+            duration: 0.2,
+        },
+    },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        transition: {
+            type: "spring",
+            stiffness: 400,
+            damping: 30,
+            staggerChildren: 0.07,
+        },
+    },
+};
+
+const linkVariants = {
+    hidden: { opacity: 0, x: -15 },
+    visible: { opacity: 1, x: 0 },
+};
 
 const Header = () => {
     const [open, setOpen] = useState(false);
@@ -11,7 +39,7 @@ const Header = () => {
         {
             label: "LET'S TALK",
             path: "#booking",
-            icon: <MessageCircle className="w-5 h-5" strokeWidth={1} />
+            icon: <MessageCircle className="w-5 h-5" strokeWidth={1} />,
         },
     ];
 
@@ -39,7 +67,7 @@ const Header = () => {
         } else {
             const id = path.substring(1);
             const section = document.getElementById(id);
-            
+
             if (section) {
                 section.scrollIntoView({
                     behavior: "smooth",
@@ -82,26 +110,33 @@ const Header = () => {
                 </button>
             </div>
 
-            {open && (
-                <div
-                    ref={panelRef}
-                    className="absolute rounded-[18px] top-[104%] left-3 right-3 bg-[#0B0F17] text-white px-4 py-3 z-50 md:hidden"
-                >
-                    <div className="flex justify-around">
-                        {navLinks.map((link, i) => (
-                            <a
-                                key={i}
-                                href={link.path}
-                                onClick={(e) => handleLinkClick(e, link.path)}
-                                className="hover:text-black transition flex items-center gap-2 cursor-pointer"
-                            >
-                                {link.label}
-                                {link.icon}
-                            </a>
-                        ))}
-                    </div>
-                </div>
-            )}
+            <AnimatePresence>
+                {open && (
+                    <motion.div
+                        ref={panelRef}
+                        className="absolute rounded-[18px] top-[104%] left-3 right-3 bg-[#0B0F17] text-white px-4 py-3 z-50 md:hidden"
+                        variants={panelVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                    >
+                        <motion.div className="flex justify-around">
+                            {navLinks.map((link, i) => (
+                                <motion.a
+                                    key={i}
+                                    href={link.path}
+                                    onClick={(e) => handleLinkClick(e, link.path)}
+                                    className="hover:text-black transition flex items-center gap-2 cursor-pointer"
+                                    variants={linkVariants}
+                                >
+                                    {link.label}
+                                    {link.icon}
+                                </motion.a>
+                            ))}
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 };

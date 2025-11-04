@@ -152,7 +152,7 @@ const HomePage = () => {
                         viewport={{ once: true, amount: 0.3 }}
                     >
                         <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-['Abhaya_Libre'] tracking-wide">
-                            LET'S MAKE YOUR EVENT <span className="italic text-[#800020]">UNFORGETTABLE</span>
+                            LET'S MAKE YOUR EVENT <span className="italic text-[#800020]">UNFORGETABLE</span>
                         </h2>
                         <p className="italic text-base mb-8 font-light leading-relaxed">
                             Looking for a unique touch for your event? Fill out the form, and let's discuss how we can bring soulful saxophone melodies to your special day.
