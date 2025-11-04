@@ -89,7 +89,7 @@ const Footer = () => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        <h3 className="text-xl font-['Abhaya_Libre'] font-semibold tracking-wide uppercase mb-4">IBARO 'SAXOHARRY' CHIDALU</h3>
+                        <h3 className="text-xl font-['Abhaya_Libre'] font-semibold tracking-wide mb-4">Ibaro 'Saxoharry' Chidalu</h3>
                         <p className="text-gray-300 max-w-md text-sm leading-relaxed font-light">
                             Elevating your events with soulful saxophone melodies.
                             Available for weddings, corporate events, and special occasions.

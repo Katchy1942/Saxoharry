@@ -70,7 +70,7 @@ const HomePage = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl leading-tight font-['Abhaya_Libre'] font-extrabold tracking-wide uppercase">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl leading-tight font-['Abhaya_Libre'] font-extrabold tracking-wide">
                             Ibaro 'Saxoharry' Chidalu
                         </h1>
 
