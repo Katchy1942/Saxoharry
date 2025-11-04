@@ -130,7 +130,6 @@ const Header = () => {
                                     variants={linkVariants}
                                 >
                                     {link.label}
-                                    {link.icon}
                                 </motion.a>
                             ))}
                         </motion.div>
