@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { MessageCircle, Menu, X } from "lucide-react";
 
 const Header = () => {
@@ -7,12 +6,12 @@ const Header = () => {
     const panelRef = useRef(null);
 
     const navLinks = [
-        { label: "HOME", path: "/" },
-        { label: "GALLERY", path: "/gallery" },
-        { 
-            label: "LET'S TALK", 
-            path: "/booking", 
-            icon: <MessageCircle className="w-5 h-5" strokeWidth={1} /> 
+        { label: "HOME", path: "#home" },
+        { label: "GALLERY", path: "#gallery" },
+        {
+            label: "LET'S TALK",
+            path: "#booking",
+            icon: <MessageCircle className="w-5 h-5" strokeWidth={1} />
         },
     ];
 
@@ -27,8 +26,37 @@ const Header = () => {
         return () => document.removeEventListener("mousedown", handleClick);
     }, [open]);
 
+    const handleLinkClick = (e, path) => {
+        // Stop the default anchor "jump"
+        e.preventDefault();
+
+        // Close the mobile menu
+        setOpen(false);
+
+        // Handle scrolling
+        if (path === "#home") {
+            // Scroll to the top of the page
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        } else {
+            // Get the ID from the path (e.g., "#gallery" -> "gallery")
+            const id = path.substring(1);
+            const section = document.getElementById(id);
+            
+            if (section) {
+                // Scroll to that section
+                section.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+            }
+        }
+    };
+
     return (
-        <header className="bg-[#800020] text-[#0B0F17] relative">
+        <header className="text-[#0B0F17] relative">
             <div className="flex items-center justify-between px-4 py-3">
                 <img
                     src="/Images/logo-removebg-preview.png"
@@ -38,14 +66,15 @@ const Header = () => {
 
                 <nav className="hidden md:flex space-x-6">
                     {navLinks.map((link, i) => (
-                        <Link 
-                            key={i} 
-                            to={link.path} 
-                            className="hover:text-black transition flex items-center gap-2"
+                        <a
+                            key={i}
+                            href={link.path}
+                            onClick={(e) => handleLinkClick(e, link.path)}
+                            className="hover:text-black transition flex items-center gap-2 cursor-pointer"
                         >
                             {link.label}
                             {link.icon}
-                        </Link>
+                        </a>
                     ))}
                 </nav>
 
@@ -63,19 +92,19 @@ const Header = () => {
             {open && (
                 <div
                     ref={panelRef}
-                    className="absolute rounded-[18px] top-[104%] left-1 right-1 bg-[#0B0F17] text-white px-4 py-3 z-50 md:hidden"
+                    className="absolute rounded-[18px] top-[104%] left-3 right-3 bg-[#0B0F17] text-white px-4 py-3 z-50 md:hidden"
                 >
                     <div className="flex justify-around">
                         {navLinks.map((link, i) => (
-                            <Link
+                            <a
                                 key={i}
-                                to={link.path}
-                                onClick={() => setOpen(false)}
-                                className="hover:text-black transition flex items-center gap-2"
+                                href={link.path}
+                                onClick={(e) => handleLinkClick(e, link.path)}
+                                className="hover:text-black transition flex items-center gap-2 cursor-pointer"
                             >
                                 {link.label}
                                 {link.icon}
-                            </Link>
+                            </a>
                         ))}
                     </div>
                 </div>

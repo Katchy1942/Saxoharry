@@ -1,21 +1,23 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Footer from "./components/Footer";
-import HomePage from "./pages/HomePage";
-import ContactPage from "./pages/ContactPage";
+import HomePage from "./HomePage";
 
 const App = () => {
     return (
         <Router>
             <div className="flex flex-col min-h-screen">
-                <Header />
-
                 <main className="flex-grow">
                     <Routes>
                         <Route path="/" element={<HomePage />} />
-                        <Route path="/contact" element={<ContactPage />} />
 
-                        <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+                        <Route path="*" element={
+                            <div className="flex items-center justify-center h-screen">
+                                <h1 className="text-3xl font-bold">
+                                    404 - Page Not Found
+                                    <Link to="/" className="underline">Home</Link>
+                                </h1>
+                            </div>
+                        } />
                     </Routes>
                 </main>
 
