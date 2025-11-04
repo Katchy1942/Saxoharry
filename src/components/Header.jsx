@@ -102,7 +102,7 @@ const Header = () => {
                 <button
                     onClick={() => setOpen(!open)}
                     onMouseDown={(e) => e.stopPropagation()}
-                    className="md:hidden p-1 rounded-[11px] border border-[#0B0F17]"
+                    className="md:hidden p-1 text-[#fff] bg-[#0B0F17]"
                     aria-expanded={open}
                     aria-label="Toggle navigation"
                 >
