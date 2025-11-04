@@ -39,17 +39,17 @@ const HomePage = () => {
     };
 
     return (
-        <div className="text-[#0B0F17]">
-            <section id="home" className="bg-[#800020] bg-cover bg-center bg-no-repeat min-h-screen text-center relative">
+        <div className="text-[#0B0F17] font-['Josefin_Sans']">
+            <section id="home" className="bg-[#800020] bg-cover bg-center bg-no-repeat min-h-screen text-center relative text-[#eef0f3]">
                 <Header />
                 
                 <div className="max-w-6xl mx-auto px-4 py-12 flex flex-col-reverse md:flex-row items-center gap-8 md:gap-0">
                     <div className="md:w-1/2 md:text-left space-y-3 sm:space-y-4 md:space-y-6">
-                        <h1 className="text-[20px] sm:text-xl md:text-2xl leading-tight">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl leading-tight font-['Abhaya_Libre'] font-extrabold tracking-wide uppercase">
                             IBARO 'SAXOHARRY' CHIDALU
                         </h1>
 
-                        <p className="text-[14px] sm:text-[15px] md:text-[17px] leading-snug sm:leading-normal italic max-w-sm mx-auto md:mx-0">
+                        <p className="text-sm sm:text-base md:text-lg leading-relaxed italic max-w-sm mx-auto md:mx-0 font-light">
                             Elevating your moments with soulful, unforgettable saxophone melodies.
                         </p>
 
@@ -57,7 +57,7 @@ const HomePage = () => {
                             href="https://wa.me/${2347039883105}"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-block bg-[#0B0F17] text-white px-7 border-2 border-black py-3 text-sm sm:text-base hover:opacity-90 transition mt-2 sm:mt-3 md:mt-4"
+                            className="inline-block bg-[#0B0F17] text-white px-7 border-2 border-black py-3 text-sm sm:text-base hover:opacity-90 transition mt-2 sm:mt-3 md:mt-4 font-semibold tracking-wider"
                         >
                             BOOK FOR YOUR EVENTS
                         </a>
@@ -90,7 +90,7 @@ const HomePage = () => {
                                         object-cover ${rotation}
                                     `}
                                 />
-                                <p className="italic text-sm mt-2">
+                                <p className="italic text-sm mt-2 font-light">
                                     {card.description}
                                 </p>
                             </div>
@@ -102,15 +102,15 @@ const HomePage = () => {
             <section id="booking" className="py-16 md:py-24 bg-[#07090e] text-[#eef0f3]">
                 <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-12 items-center">
                     <div className="md:w-1/2 w-full">
-                        <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-['Abhaya_Libre'] tracking-wide">
                             LET'S MAKE YOUR EVENT <span className="italic text-[#800020]">UNFORGETTABLE</span>
                         </h2>
-                        <p className="italic text-sm mb-8">
+                        <p className="italic text-base mb-8 font-light leading-relaxed">
                             Looking for a unique touch for your event? Fill out the form, and let's discuss how we can bring soulful saxophone melodies to your special day.
                         </p>
                         <div className="space-y-5">
                             <div>
-                                <label htmlFor="name">NAME</label>
+                                <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-widest mb-2">NAME</label>
                                 <input
                                     type="text"
                                     id="name"
@@ -118,11 +118,11 @@ const HomePage = () => {
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     placeholder="Stephanie"
-                                    className="w-full text-sm p-3 border-2 border-black mt-2 focus:outline-none focus:ring-3 focus:ring-[#000000]"
+                                    className="w-full text-sm p-3 border-2 border-black mt-2 focus:outline-none focus:ring-3 focus:ring-[#000000] font-['Josefin_Sans']"
                                 />
                             </div>
                             <div>
-                                <label htmlFor="message">MESSAGE</label>
+                                <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-widest mb-2">MESSAGE</label>
                                 <textarea
                                     id="message"
                                     name="message"
@@ -130,7 +130,7 @@ const HomePage = () => {
                                     onChange={(e) => setMessage(e.target.value)}
                                     rows="5"
                                     placeholder="I'll like you to perform at..."
-                                    className="w-full text-sm p-3 border-2 border-black mt-2 focus:outline-none focus:ring-3 focus:ring-[#000000]"
+                                    className="w-full text-sm p-3 border-2 border-black mt-2 focus:outline-none focus:ring-3 focus:ring-[#000000] font-['Josefin_Sans']"
                                 ></textarea>
                             </div>
                         </div>
@@ -138,7 +138,7 @@ const HomePage = () => {
                             type="button"
                             onClick={handleWhatsAppRedirect}
                             disabled={!name || !message}
-                            className="inline-block w-full border-2 border-black bg-[#0B0F17] text-white mt-2 sm:mt-3 md:mt-4 px-7 py-3 text-sm sm:text-base hover:opacity-90 transition"
+                            className="inline-block w-full border-2 border-black bg-[#0B0F17] text-white mt-2 sm:mt-3 md:mt-4 px-7 py-3 text-sm sm:text-base hover:opacity-90 transition font-semibold tracking-wider"
                         >
                             SEND INQUIRY
                         </button>

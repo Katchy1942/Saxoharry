@@ -27,26 +27,20 @@ const Header = () => {
     }, [open]);
 
     const handleLinkClick = (e, path) => {
-        // Stop the default anchor "jump"
         e.preventDefault();
 
-        // Close the mobile menu
         setOpen(false);
 
-        // Handle scrolling
         if (path === "#home") {
-            // Scroll to the top of the page
             window.scrollTo({
                 top: 0,
                 behavior: "smooth",
             });
         } else {
-            // Get the ID from the path (e.g., "#gallery" -> "gallery")
             const id = path.substring(1);
             const section = document.getElementById(id);
             
             if (section) {
-                // Scroll to that section
                 section.scrollIntoView({
                     behavior: "smooth",
                     block: "start",
@@ -73,7 +67,6 @@ const Header = () => {
                             className="hover:text-black transition flex items-center gap-2 cursor-pointer"
                         >
                             {link.label}
-                            {link.icon}
                         </a>
                     ))}
                 </nav>
