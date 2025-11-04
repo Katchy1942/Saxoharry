@@ -71,7 +71,7 @@ const HomePage = () => {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
                         <h1 className="text-2xl sm:text-3xl md:text-4xl leading-tight font-['Abhaya_Libre'] font-extrabold tracking-wide uppercase">
-                            IBARO 'SAXOHARRY' CHIDALU
+                            Ibaro 'Saxoharry' Chidalu
                         </h1>
 
                         <p className="text-sm sm:text-base md:text-lg leading-relaxed italic max-w-sm mx-auto md:mx-0 font-light">
@@ -152,7 +152,7 @@ const HomePage = () => {
                         viewport={{ once: true, amount: 0.3 }}
                     >
                         <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-['Abhaya_Libre'] tracking-wide">
-                            LET'S MAKE YOUR EVENT <span className="italic text-[#800020]">UNFORGETABLE</span>
+                            Let's Make Your Events <span className="italic text-[#800020]">Unforgetable</span>
                         </h2>
                         <p className="italic text-base mb-8 font-light leading-relaxed">
                             Looking for a unique touch for your event? Fill out the form, and let's discuss how we can bring soulful saxophone melodies to your special day.
