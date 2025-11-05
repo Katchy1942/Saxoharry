@@ -35,8 +35,8 @@ const Header = () => {
     const navLinks = [
         { label: "HOME", path: "#home" },
         { label: "GALLERY", path: "#gallery" },
-        { label: "LET'S TALK", path: "#booking" },
         { label: "TESTIMONIALS", path: "#testimonials" },
+        { label: "LET'S TALK", path: "#booking" },
     ];
 
     useEffect(() => {
