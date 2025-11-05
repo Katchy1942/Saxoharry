@@ -233,8 +233,8 @@ const HomePage = () => {
                                 {[facePictures[0], facePictures[1], facePictures[2]].map((imageUrl, idx) => (
                                     <div
                                         key={`top-${idx}`}
-                                        className={`w-14 h-14 rounded-full bg-cover border-2 border-black shadow-md 
-                                        ${idx === 0 ? '-rotate-2' : idx === 1 ? 'rotate-1' : '-rotate-1'}`}
+                                        className={`rounded-full bg-cover border-2 border-black shadow-md 
+                                        ${idx === 0 ? '-rotate-2 w-28 h-28' : idx === 1 ? 'rotate-1 w-14 h-14' : '-rotate-1 w-14 h-14'}`}
                                         style={{
                                             backgroundImage: `url(${imageUrl})`,
                                             backgroundPosition: 'top center'
@@ -256,7 +256,7 @@ const HomePage = () => {
                                     <div
                                         key={`bottom-${idx}`}
                                         className={`w-14 h-14 rounded-full bg-cover border-2 border-black shadow-md 
-                                        ${idx === 0 ? 'rotate-2' : '-rotate-2'}`}
+                                        ${idx === 0 ? 'rotate-2' : '-rotate-2 w-28 h-28'}`}
                                         style={{
                                             backgroundImage: `url(${imageUrl})`,
                                             backgroundPosition: 'top center'
