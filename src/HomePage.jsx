@@ -142,7 +142,31 @@ const HomePage = () => {
                 </motion.div>
             </section>
 
-            <section id="booking" className="py-16 md:py-24 bg-[#07090e] text-[#eef0f3] overflow-x-hidden">
+            
+
+            <section id="testimonials" className="py-16 md:py-24 bg-[#07090e] text-[#eef0f3] overflow-x-hidden">
+                <div className="mx-auto px-4 flex flex-col md:flex-row justify-center items-center">
+                    <motion.div
+                        className="md:w-1/2 w-full"
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
+                        <h2 className="text-4xl sm:text-5xl font-bold mb-4 font-['Abhaya_Libre'] tracking-wide">
+                            Testimonial From Our Beloved Clients
+                        </h2>
+
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur architecto saepe nihil.
+                            Sequi recusandae earum natus corporis obcaecati suscipit distinctio doloremque sunt veniam 
+                            cupiditate. Quas qui ex rem similique amet.
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
+
+            <section id="booking" className="py-16 md:py-24 bg-[#030305] text-[#eef0f3] overflow-x-hidden">
                 <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-12 items-center">
                     <motion.div
                         className="md:w-1/2 w-full"
@@ -151,7 +175,7 @@ const HomePage = () => {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         viewport={{ once: true, amount: 0.3 }}
                     >
-                        <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-['Abhaya_Libre'] tracking-wide">
+                        <h2 className="text-4xl sm:text-5xl font-bold mb-4 font-['Abhaya_Libre'] tracking-wide">
                             Let's Make Your Events <span className="italic text-[#800020]">Unforgetable</span>
                         </h2>
                         <p className="italic text-base mb-8 font-light leading-relaxed">

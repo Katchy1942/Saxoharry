@@ -19,7 +19,6 @@ const panelVariants = {
             type: "spring",
             stiffness: 400,
             damping: 30,
-            staggerChildren: 0.07,
         },
     },
 };
@@ -36,11 +35,8 @@ const Header = () => {
     const navLinks = [
         { label: "HOME", path: "#home" },
         { label: "GALLERY", path: "#gallery" },
-        {
-            label: "LET'S TALK",
-            path: "#booking",
-            icon: <MessageCircle className="w-5 h-5" strokeWidth={1} />,
-        },
+        { label: "LET'S TALK", path: "#booking" },
+        { label: "TESTIMONIALS", path: "#testimonials" },
     ];
 
     useEffect(() => {
@@ -102,7 +98,7 @@ const Header = () => {
                 <button
                     onClick={() => setOpen(!open)}
                     onMouseDown={(e) => e.stopPropagation()}
-                    className="md:hidden p-2 text-[#fff] bg-[#0B0F17]"
+                    className="md:hidden p-2 text-[#fff] bg-[#0B0F17] rounded-xl flex items-center justify-center transition"
                     aria-expanded={open}
                     aria-label="Toggle navigation"
                 >
@@ -114,23 +110,23 @@ const Header = () => {
                 {open && (
                     <motion.div
                         ref={panelRef}
-                        className="absolute rounded-[18px] top-[104%] left-3 right-3 bg-[#0B0F17] text-white px-4 py-3 z-50 md:hidden"
+                        className="absolute top-[104%] left-3 right-3 bg-[#0B0F17] rounded-xl text-white px-4 py-3 z-50 md:hidden"
                         variants={panelVariants}
                         initial="hidden"
                         animate="visible"
                         exit="hidden"
                     >
-                        <motion.div className="flex justify-around">
+                        <motion.div className="flex flex-col space-y-4 py-2">
                             {navLinks.map((link, i) => (
-                                <motion.a
+                                <a
                                     key={i}
                                     href={link.path}
                                     onClick={(e) => handleLinkClick(e, link.path)}
-                                    className="hover:text-black transition flex items-center gap-2 cursor-pointer"
+                                    className="hover:text-gray-400 text-[12px] tracking-widest transition flex items-center justify-center gap-2 cursor-pointer"
                                     variants={linkVariants}
                                 >
                                     {link.label}
-                                </motion.a>
+                                </a>
                             ))}
                         </motion.div>
                     </motion.div>

@@ -102,7 +102,7 @@ const Footer = () => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        <h3 className="text-lg font-['Abhaya_Libre'] font-semibold tracking-wide uppercase mb-4">LET'S VIBE</h3>
+                        <h3 className="text-lg font-['Abhaya_Libre'] font-semibold tracking-wide mb-4">Let's Connect</h3>
                         <motion.div
                             className="flex flex-wrap gap-5"
                             variants={socialContainerVariants}
