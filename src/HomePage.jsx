@@ -211,19 +211,50 @@ const HomePage = () => {
                 </motion.div>
             </section>
 
-            <section id="testimonials" className="py-16 md:py-24 bg-[#07090e] text-[#eef0f3] overflow-x-hidden">
+            <section
+                id="testimonials"
+                className="py-16 md:py-24 bg-[#07090e] text-[#eef0f3] overflow-x-hidden"
+            >
                 <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-12 items-center">
 
                     <motion.div
-                        className="md:w-1/2 w-full md:order-2"
+                        className="w-full md:w-1/2 md:order-2"
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         viewport={{ once: true, amount: 0.3 }}
                     >
-                        <h2 className="text-4xl sm:text-5xl font-bold mb-4 font-['Abhaya_Libre'] tracking-wide">
+                        <h2 className="text-4xl sm:text-5xl font-bold font-['Abhaya_Libre'] tracking-wide mb-6">
                             Testimonial From Our <span className="text-[#800020]">Beloved</span> Clients
                         </h2>
+
+                        <div className="flex flex-wrap gap-4 justify-center items-center mb-8 md:hidden">
+                            {facePictures.map((imageUrl, index) => {
+                                const rotation = index % 3 === 0 ? "rotate-2" : "-rotate-2";
+                                const verticalOffset = (index % 3) * 1;
+                                const isLarge = index === 0 || index === 4;
+                                const sizeClass = isLarge
+                                    ? "w-24 h-24"
+                                    : "w-16 h-16";
+
+                                return (
+                                    <div
+                                        key={index}
+                                        className={`flex ${rotation} hover:rotate-0 transition-transform duration-300`}
+                                        style={{ marginTop: `${verticalOffset}rem` }}
+                                    >
+                                        <div
+                                            aria-label={`Client ${index + 1}`}
+                                            className={`${sizeClass} border-2 border-black rounded-full shadow-lg bg-cover`}
+                                            style={{
+                                                backgroundImage: `url(${imageUrl})`,
+                                                backgroundPosition: "top center"
+                                            }}
+                                        />
+                                    </div>
+                                );
+                            })}
+                        </div>
 
                         <div className="relative h-40">
                             <AnimatePresence initial={false} custom={direction}>
@@ -240,11 +271,11 @@ const HomePage = () => {
                                 </motion.p>
                             </AnimatePresence>
                         </div>
-                        
+
                         <div className="relative h-12">
                             <AnimatePresence initial={false} custom={direction}>
                                 <motion.p
-                                    key={currentTestimonial + '_attr'}
+                                    key={currentTestimonial + "_attr"}
                                     custom={direction}
                                     variants={testimonialVariants}
                                     initial="enter"
@@ -268,7 +299,7 @@ const HomePage = () => {
                     </motion.div>
 
                     <motion.div
-                        className="md:w-1/2 w-full md:order-1"
+                        className="w-full md:w-1/2 md:order-1 hidden md:flex"
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -276,34 +307,27 @@ const HomePage = () => {
                     >
                         <div className="flex flex-wrap gap-6 sm:gap-10 justify-center items-center py-8">
                             {facePictures.map((imageUrl, index) => {
-                                const rotation = index % 3 === 0 ? 'rotate-2' : '-rotate-2';
+                                const rotation = index % 3 === 0 ? "rotate-2" : "-rotate-2";
                                 const verticalOffset = (index % 3) * 1;
-
                                 const isLarge = index === 0 || index === 4;
                                 const sizeClass = isLarge
-                                    ? 'w-32 h-32 sm:w-48 sm:h-48'
-                                    : 'w-20 h-20 sm:w-32 sm:h-32';
+                                    ? "w-32 h-32 sm:w-48 sm:h-48"
+                                    : "w-20 h-20 sm:w-32 sm:h-32";
 
                                 return (
-                                    <div 
-                                        key={index} 
+                                    <div
+                                        key={index}
                                         className={`flex ${rotation} hover:rotate-0 transition-transform duration-300`}
                                         style={{ marginTop: `${verticalOffset}rem` }}
                                     >
                                         <div
                                             aria-label={`Client ${index + 1}`}
-                                            className={`
-                                                ${sizeClass}
-                                                border-4 border-black
-                                                rounded-full shadow-lg
-                                                bg-cover
-                                            `}
-                                            style={{ 
+                                            className={`${sizeClass} border-4 border-black rounded-full shadow-lg bg-cover`}
+                                            style={{
                                                 backgroundImage: `url(${imageUrl})`,
-                                                backgroundPosition: 'top center'
+                                                backgroundPosition: "top center"
                                             }}
-                                        >
-                                        </div>
+                                        />
                                     </div>
                                 );
                             })}
