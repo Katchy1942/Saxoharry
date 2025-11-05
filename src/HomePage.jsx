@@ -228,32 +228,42 @@ const HomePage = () => {
                             Testimonial From Our <span className="text-[#800020]">Beloved</span> Clients
                         </h2>
 
-                        <div className="flex flex-wrap gap-4 justify-center items-center mb-8 md:hidden">
-                            {facePictures.map((imageUrl, index) => {
-                                const rotation = index % 3 === 0 ? "rotate-2" : "-rotate-2";
-                                const verticalOffset = (index % 3) * 1;
-                                const isLarge = index === 0 || index === 4;
-                                const sizeClass = isLarge
-                                    ? "w-24 h-24"
-                                    : "w-16 h-16";
-
-                                return (
+                        <div className="md:hidden flex flex-col items-center gap-4 mb-10">
+                            <div className="flex justify-center gap-3">
+                                {[facePictures[0], facePictures[1], facePictures[2]].map((imageUrl, idx) => (
                                     <div
-                                        key={index}
-                                        className={`flex ${rotation} hover:rotate-0 transition-transform duration-300`}
-                                        style={{ marginTop: `${verticalOffset}rem` }}
-                                    >
-                                        <div
-                                            aria-label={`Client ${index + 1}`}
-                                            className={`${sizeClass} border-2 border-black rounded-full shadow-lg bg-cover`}
-                                            style={{
-                                                backgroundImage: `url(${imageUrl})`,
-                                                backgroundPosition: "top center"
-                                            }}
-                                        />
-                                    </div>
-                                );
-                            })}
+                                        key={`top-${idx}`}
+                                        className={`w-14 h-14 rounded-full bg-cover border-2 border-black shadow-md 
+                                        ${idx === 0 ? '-rotate-2' : idx === 1 ? 'rotate-1' : '-rotate-1'}`}
+                                        style={{
+                                            backgroundImage: `url(${imageUrl})`,
+                                            backgroundPosition: 'top center'
+                                        }}
+                                    />
+                                ))}
+                            </div>
+
+                            <div
+                                className="w-24 h-24 rounded-full bg-cover border-2 border-black shadow-lg rotate-1 -mt-2"
+                                style={{
+                                    backgroundImage: `url(${facePictures[3]})`,
+                                    backgroundPosition: 'top center'
+                                }}
+                            />
+
+                            <div className="flex justify-center gap-4 -mt-1">
+                                {[facePictures[4], facePictures[5]].map((imageUrl, idx) => (
+                                    <div
+                                        key={`bottom-${idx}`}
+                                        className={`w-14 h-14 rounded-full bg-cover border-2 border-black shadow-md 
+                                        ${idx === 0 ? 'rotate-2' : '-rotate-2'}`}
+                                        style={{
+                                            backgroundImage: `url(${imageUrl})`,
+                                            backgroundPosition: 'top center'
+                                        }}
+                                    />
+                                ))}
+                            </div>
                         </div>
 
                         <div className="relative h-40">
