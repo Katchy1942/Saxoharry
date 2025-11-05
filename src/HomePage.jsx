@@ -213,51 +213,9 @@ const HomePage = () => {
 
             <section id="testimonials" className="py-16 md:py-24 bg-[#07090e] text-[#eef0f3] overflow-x-hidden">
                 <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-12 items-center">
-                    <motion.div
-                        className="md:w-1/2 w-full hidden md:block"
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        viewport={{ once: true, amount: 0.3 }}
-                    >
-                        <div className="flex flex-wrap gap-6 sm:gap-10 justify-center items-center py-8">
-                            {facePictures.map((imageUrl, index) => {
-                                const rotation = index % 3 === 0 ? 'rotate-2' : '-rotate-2';
-                                const verticalOffset = (index % 3) * 1;
-
-                                const isLarge = index === 0 || index === 4;
-                                const sizeClass = isLarge
-                                    ? 'w-28 h-28 sm:w-40 sm:h-40'
-                                    : 'w-20 h-20 sm:w-32 sm:h-32';
-
-                                return (
-                                    <div 
-                                        key={index} 
-                                        className={`flex ${rotation} hover:rotate-0 transition-transform duration-300`}
-                                        style={{ marginTop: `${verticalOffset}rem` }}
-                                    >
-                                        <div
-                                            aria-label={`Client ${index + 1}`}
-                                            className={`
-                                                ${sizeClass}
-                                                border-4 border-black
-                                                rounded-full shadow-lg
-                                                bg-cover
-                                            `}
-                                            style={{ 
-                                                backgroundImage: `url(${imageUrl})`,
-                                                backgroundPosition: 'top center'
-                                            }}
-                                        >
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </motion.div>
 
                     <motion.div
-                        className="md:w-1/2 w-full"
+                        className="md:w-1/2 w-full md:order-2"
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -284,7 +242,7 @@ const HomePage = () => {
                         </div>
                         
                         <div className="relative h-12">
-                             <AnimatePresence initial={false} custom={direction}>
+                            <AnimatePresence initial={false} custom={direction}>
                                 <motion.p
                                     key={currentTestimonial + '_attr'}
                                     custom={direction}
@@ -306,6 +264,49 @@ const HomePage = () => {
                             <button onClick={handleNext} className="hover:opacity-70 transition-opacity">
                                 <img src="/icons/left_icon.png" alt="right" className="w-8 sm:w-12 rotate-180" />
                             </button>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        className="md:w-1/2 w-full md:order-1"
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
+                        <div className="flex flex-wrap gap-6 sm:gap-10 justify-center items-center py-8">
+                            {facePictures.map((imageUrl, index) => {
+                                const rotation = index % 3 === 0 ? 'rotate-2' : '-rotate-2';
+                                const verticalOffset = (index % 3) * 1;
+
+                                const isLarge = index === 0 || index === 4;
+                                const sizeClass = isLarge
+                                    ? 'w-32 h-32 sm:w-48 sm:h-48'
+                                    : 'w-20 h-20 sm:w-32 sm:h-32';
+
+                                return (
+                                    <div 
+                                        key={index} 
+                                        className={`flex ${rotation} hover:rotate-0 transition-transform duration-300`}
+                                        style={{ marginTop: `${verticalOffset}rem` }}
+                                    >
+                                        <div
+                                            aria-label={`Client ${index + 1}`}
+                                            className={`
+                                                ${sizeClass}
+                                                border-4 border-black
+                                                rounded-full shadow-lg
+                                                bg-cover
+                                            `}
+                                            style={{ 
+                                                backgroundImage: `url(${imageUrl})`,
+                                                backgroundPosition: 'top center'
+                                            }}
+                                        >
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </motion.div>
                 </div>
