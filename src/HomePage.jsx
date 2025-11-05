@@ -252,11 +252,11 @@ const HomePage = () => {
                             />
 
                             <div className="flex justify-center gap-4 -mt-1">
-                                {[facePictures[4], facePictures[5]].map((imageUrl, idx) => (
+                                {[facePictures[4],].map((imageUrl, idx) => (
                                     <div
                                         key={`bottom-${idx}`}
-                                        className={`w-14 h-14 rounded-full bg-cover border-2 border-black shadow-md 
-                                        ${idx === 0 ? 'rotate-2' : '-rotate-2 w-28 h-28'}`}
+                                        className={`rounded-full bg-cover border-2 border-black shadow-md 
+                                        ${idx === 0 ? 'rotate-2  w-28 h-28' : '-rotate-2'}`}
                                         style={{
                                             backgroundImage: `url(${imageUrl})`,
                                             backgroundPosition: 'top center'
