@@ -37,6 +37,11 @@ const Footer = () => {
             link: 'https://wa.me/2347039883105',
             name: 'Whatsapp'
         },
+        {
+            icon: '/icons/youtube.png',
+            link: 'https://www.youtube.com/@Saxoharry-i6y',
+            name: 'YouTube'
+        },
     ];
 
     const footerVariants = {
