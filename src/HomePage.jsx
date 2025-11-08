@@ -26,47 +26,19 @@ const HomePage = () => {
         },
     ];
 
-    const facePictures = [
-        "/Images/man1.jpg",
-        "/Images/boy1.jpg",
-        "/Images/boy2.jpg",
-        "/Images/girl1.jpg",
-        "/Images/girl2.jpg",
-    ];
-
     const testimonials = [
         {
-            quote: `His performance was the highlight of our annual gala. Truly professional
-                and incredibly talented. He set the perfect atmosphere for the entire evening.`,
-            attribution: "Anita J., Corporate Event Planner"
+            quote: `Well done bro! Back to back stellar performances for 3 years now!`,
+            name: "Chinedu Ifecheluobi",
+            attribution: "TEDxEnugu Primary Licensee",
+            image: "/Images/chinedu_ifecheluobi.jfif"
         },
         {
-            quote: `We had him play during our wedding ceremony and reception. There wasn't a dry 
-                eye in the house. It was absolutely magical and unforgettable.`,
-            attribution: "Charles & Stephanie, Newlyweds"
+            quote: `Many thanks SaxoHarry, your performance at the event was electrifying.`,
+            name: "Chukwuma Ephraim",
+            attribution: "Executive Director, LEAD Network Africa",
+            image: "/Images/chukwuma_ephraim.jfif"
         },
-        {
-            quote: `Learning from Harry was the best decision I made. He is an incredibly patient 
-                teacher and explains complex techniques in a way that's easy to understand. My 
-                playing has improved more than I ever thought possible.`,
-            attribution: "Chiamaka Okeke, Saxophone Student"
-        },
-        {
-            quote: `As my tutor, Saxoharry didn't just teach me notes, he taught me how to express 
-                myself through music. His passion is infectious, and my confidence as a 
-                musician has grown incredibly. A true mentor.`,
-            attribution: "Tunde Adebayo, Aspiring Musician"
-        },
-        {
-            quote: `The way he plays is just pure soul. It's not just music; it's a complete experience. I 
-                could listen to him for hours on end. Simply amazing.`,
-            attribution: "Ugwu Peters, Jazz Enthusiast"
-        },
-        {
-            quote: `From the first inquiry to the last note played, he was an absolute pleasure to work with.
-                He understood our vision perfectly. A true class act.`,
-            attribution: "Esther Chidimma, Wedding Coordinator"
-        }
     ];
 
     const [name, setName] = useState('');
@@ -217,6 +189,42 @@ const HomePage = () => {
             >
                 <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-12 items-center">
 
+                    {/* LEFT – Collage of Testimonial Givers */}
+                    <motion.div
+                        className="w-full md:w-1/2 md:order-1 flex justify-center"
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
+                        <div className="flex flex-wrap gap-6 sm:gap-10 justify-center items-center py-8">
+                            {testimonials.map((t, index) => {
+                                const rotation = index % 2 === 0 ? "rotate-3" : "-rotate-3";
+                                const isLarge = index === 0;
+                                const sizeClass = isLarge
+                                    ? "w-32 h-32 sm:w-44 sm:h-44"
+                                    : "w-20 h-20 sm:w-32 sm:h-32";
+
+                                return (
+                                    <div
+                                        key={index}
+                                        className={`flex ${rotation} hover:rotate-0 transition-transform duration-300`}
+                                    >
+                                        <div
+                                            aria-label={t.name}
+                                            className={`${sizeClass} border-4 border-black rounded-full shadow-lg bg-cover`}
+                                            style={{
+                                                backgroundImage: `url(${t.image})`,
+                                                backgroundPosition: "top center"
+                                            }}
+                                        />
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </motion.div>
+
+                    {/* RIGHT – Testimonial Text + Controls */}
                     <motion.div
                         className="w-full md:w-1/2 md:order-2"
                         initial={{ opacity: 0, x: -50 }}
@@ -228,124 +236,54 @@ const HomePage = () => {
                             Testimonial From Our <span className="text-[#800020]">Beloved</span> Clients
                         </h2>
 
-                        <div className="md:hidden flex flex-col items-center gap-4 mb-10">
-                            <div className="flex justify-center gap-3">
-                                {[facePictures[0], facePictures[1], facePictures[2]].map((imageUrl, idx) => (
-                                    <div
-                                        key={`top-${idx}`}
-                                        className={`rounded-full bg-cover border-2 border-black shadow-md 
-                                        ${idx === 0 ? '-rotate-2 w-28 h-28' : idx === 1 ? 'rotate-1 w-14 h-14' : '-rotate-1 w-14 h-14'}`}
-                                        style={{
-                                            backgroundImage: `url(${imageUrl})`,
-                                            backgroundPosition: 'top center'
-                                        }}
-                                    />
-                                ))}
-                            </div>
-
-                            <div
-                                className="w-24 h-24 rounded-full bg-cover border-2 border-black shadow-lg rotate-1 -mt-2"
-                                style={{
-                                    backgroundImage: `url(${facePictures[3]})`,
-                                    backgroundPosition: 'top center'
-                                }}
-                            />
-
-                            <div className="flex justify-center gap-4 -mt-1">
-                                {[facePictures[4],].map((imageUrl, idx) => (
-                                    <div
-                                        key={`bottom-${idx}`}
-                                        className={`rounded-full bg-cover border-2 border-black shadow-md 
-                                        ${idx === 0 ? 'rotate-2  w-28 h-28' : '-rotate-2'}`}
-                                        style={{
-                                            backgroundImage: `url(${imageUrl})`,
-                                            backgroundPosition: 'top center'
-                                        }}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="relative h-40">
+                        {/* QUOTE + PERSON */}
+                        <div className="relative min-h-48">
                             <AnimatePresence initial={false} custom={direction}>
-                                <motion.p
+                                <motion.div
                                     key={currentTestimonial}
                                     custom={direction}
                                     variants={testimonialVariants}
                                     initial="enter"
                                     animate="center"
                                     exit="exit"
-                                    className="absolute w-full"
+                                    className="absolute w-full flex flex-col gap-5"
                                 >
-                                    "{testimonials[currentTestimonial].quote}"
-                                </motion.p>
+                                    <p className="text-xl sm:text-2xl leading-relaxed">
+                                        "{testimonials[currentTestimonial].quote}"
+                                    </p>
+
+                                    <div className="flex items-center gap-3 mt-2">
+                                        <img
+                                            src={testimonials[currentTestimonial].image}
+                                            alt={testimonials[currentTestimonial].name}
+                                            className="w-12 h-12 rounded-full object-cover border border-gray-300"
+                                        />
+                                        <div>
+                                            <p className="font-semibold text-base">
+                                                {testimonials[currentTestimonial].name}
+                                            </p>
+                                            <p className="text-sm text-gray-300">
+                                                {testimonials[currentTestimonial].attribution}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </motion.div>
                             </AnimatePresence>
                         </div>
 
-                        <div className="relative h-12">
-                            <AnimatePresence initial={false} custom={direction}>
-                                <motion.p
-                                    key={currentTestimonial + "_attr"}
-                                    custom={direction}
-                                    variants={testimonialVariants}
-                                    initial="enter"
-                                    animate="center"
-                                    exit="exit"
-                                    className="absolute w-full mt-4"
-                                >
-                                    {testimonials[currentTestimonial].attribution}
-                                </motion.p>
-                            </AnimatePresence>
-                        </div>
-
-                        <div className="flex items-center gap-4 mt-4">
+                        {/* CONTROLS */}
+                        <div className="flex items-center gap-4 mt-8">
                             <button onClick={handlePrev} className="hover:opacity-70 transition-opacity">
-                                <img src="/icons/left_icon.png" alt="left" className="w-8 sm:w-12" />
+                                <img src="/icons/left_icon.png" alt="previous" className="w-8 sm:w-12" />
                             </button>
                             <button onClick={handleNext} className="hover:opacity-70 transition-opacity">
-                                <img src="/icons/left_icon.png" alt="right" className="w-8 sm:w-12 rotate-180" />
+                                <img src="/icons/left_icon.png" alt="next" className="w-8 sm:w-12 rotate-180" />
                             </button>
-                        </div>
-                    </motion.div>
-
-                    <motion.div
-                        className="w-full md:w-1/2 md:order-1 hidden md:flex"
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        viewport={{ once: true, amount: 0.3 }}
-                    >
-                        <div className="flex flex-wrap gap-6 sm:gap-10 justify-center items-center py-8">
-                            {facePictures.map((imageUrl, index) => {
-                                const rotation = index % 3 === 0 ? "rotate-2" : "-rotate-2";
-                                const verticalOffset = (index % 3) * 1;
-                                const isLarge = index === 0 || index === 4;
-                                const sizeClass = isLarge
-                                    ? "w-32 h-32 sm:w-48 sm:h-48"
-                                    : "w-20 h-20 sm:w-32 sm:h-32";
-
-                                return (
-                                    <div
-                                        key={index}
-                                        className={`flex ${rotation} hover:rotate-0 transition-transform duration-300`}
-                                        style={{ marginTop: `${verticalOffset}rem` }}
-                                    >
-                                        <div
-                                            aria-label={`Client ${index + 1}`}
-                                            className={`${sizeClass} border-4 border-black rounded-full shadow-lg bg-cover`}
-                                            style={{
-                                                backgroundImage: `url(${imageUrl})`,
-                                                backgroundPosition: "top center"
-                                            }}
-                                        />
-                                    </div>
-                                );
-                            })}
                         </div>
                     </motion.div>
                 </div>
             </section>
-
+            
             <section id="booking" className="py-16 md:py-24 bg-[#030305] text-[#eef0f3] overflow-x-hidden">
                 <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-12 items-center">
                     <motion.div
