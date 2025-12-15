@@ -26,7 +26,13 @@ const HomePage = () => {
         },
     ];
 
-    const testimonials = [
+    const testimonials = [  
+        {
+            quote: `Keep it up Harry, you are talented.`,
+            name: "Ken Erics",
+            attribution: "Veteran Nollywood Actor",
+            image: "/Images/ken_erics.jpg"
+        },
         {
             quote: `Well done bro! Back to back stellar performances for 3 years now!`,
             name: "Chinedu Ifecheluobi",
@@ -38,6 +44,36 @@ const HomePage = () => {
             name: "Chukwuma Ephraim",
             attribution: "Executive Director, LEAD Network Africa",
             image: "/Images/chukwuma_ephraim.jfif"
+        },        
+        {
+            quote: `You sabi. You're too good. Ride on!`,
+            name: "Susan Aningene",
+            attribution: "CEO, Baking Bliss & Events",
+            image: "/Images/susan_aningene.jpg"
+        },
+        {
+            quote: `You did a good job. Well done.`,
+            name: "Prof. Chidiebere Onyia",
+            attribution: "Secretary to Enugu State Government",
+            image: "/Images/chidiebere_onyia.jpg"
+        },
+        {
+            quote: `Well done Harrison. That was an outstanding performance.`,
+            name: "Prof. Gozie Ogbodo",
+            attribution: "Rector, Institute of Management and Technology, (IMT), Enugu",
+            image: "/Images/gozie_ogbodo.jpg"
+        },
+        {
+            quote: `You played so well. You're doing well. Keep it up.`,
+            name: "Dr. Godwin Anigbo, mni",
+            attribution: "Head of Service, Enugu State",
+            image: "/Images/godwin_anigbo.jpg"
+        },
+        {
+            quote: `A great job Harrison. Everyone enjoyed your performance.`,
+            name: "Ikeazor Akaraiwe",
+            attribution: "SAN",
+            image: "/Images/ikeazor_akaraiwe.jpg"
         },
     ];
 
@@ -101,7 +137,8 @@ const HomePage = () => {
 
     return (
         <div className="text-[#0B0F17] font-['Josefin_Sans']">
-            <section id="home" className="bg-[#800020] bg-cover bg-center bg-no-repeat min-h-screen text-center relative text-[#eef0f3] overflow-x-hidden">
+            <section id="home" className="bg-[#800020] bg-cover bg-center bg-no-repeat 
+            min-h-screen text-center relative text-[#eef0f3] overflow-x-hidden">
                 <Header />
                 
                 <div className="max-w-6xl mx-auto px-4 py-12 flex flex-col-reverse md:flex-row items-center gap-8 md:gap-0">
@@ -123,7 +160,8 @@ const HomePage = () => {
                             href="https://wa.me/2347039883105"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-block bg-[#0B0F17] text-white px-7 border-2 border-black py-3 text-sm sm:text-base hover:opacity-90 transition mt-2 sm:mt-3 md:mt-4 font-semibold tracking-wider"
+                            className="inline-block bg-[#0B0F17] text-white px-7 border-2 border-black py-3 
+                            text-sm sm:text-base hover:opacity-90 transition mt-2 sm:mt-3 md:mt-4 font-semibold tracking-wider"
                             whileHover={buttonHover}
                         >
                             BOOK FOR YOUR EVENTS
@@ -146,7 +184,79 @@ const HomePage = () => {
                 </div>
             </section>
 
-            <section id="gallery" className="bg-[#0B0F17] text-[#eef0f3]">
+            <section id="about" className="py-16 md:py-24 bg-[#111724] text-[#eef0f3] overflow-x-hidden">
+                <div className="max-w-6xl mx-auto px-4 flex flex-col-reverse md:flex-row gap-12 md:gap-20 items-center">
+
+                    <motion.div
+                        className="w-full md:w-1/2 flex flex-col justify-center"
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
+                        <h2 className="text-4xl sm:text-5xl font-bold font-['Abhaya_Libre'] tracking-wide mb-6">
+                            About <span className="text-[#800020]">Saxoharry</span>
+                        </h2>
+
+                        <div className="space-y-6 text-gray-300 text-[14px] leading-relaxed font-light">
+                            <p>
+                                I am <strong className="text-white">Harrison Chidalu Ibaro</strong>, 
+                                professionally known as <span className="text-white">Saxoharry</span>. 
+                                As a saxophonist and musician, I bring experience performing across a wide 
+                                range of events, focusing on delivering music that fits the character of each 
+                                occasion by combining technical skill with a deep understanding of audience needs.
+                            </p>
+
+                            <p>
+                                Beyond the stage, I am a communication and influencer marketing practitioner and 
+                                researcher. I have successfully coordinated marketing campaigns, applying my background in 
+                                <strong className="text-white"> Media and Entertainment</strong> to ensure messages are 
+                                communicated effectively and audiences remain engaged.
+                            </p>
+
+                            <p>
+                                I hold a Bachelor of Arts in <strong className="text-white">Mass Communication
+                                </strong> from the University of Nigeria, Nsukka. My academic training and 
+                                professional experience allow me to approach both music and communication with 
+                                precision, ensuring that every project or performance is executed 
+                                thoughtfully and with attention to detail.
+                            </p>
+                        </div>
+
+                        <div className="mt-8">
+                            <p className="font-['Abhaya_Libre'] text-2xl text-[#800020] italic">
+                                — Harrison Chidalu Ibaro
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        className="w-full md:w-1/2 flex justify-center md:justify-end"
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
+                        <div className="relative w-full max-w-md aspect-[3/4] md:aspect-[4/5] 
+                        rounded-3xl overflow-hidden shadow-2xl border-3 border-black ">
+                            <img
+                                src="/Images/saxoharry-portrait.png"
+                                alt="Harrison Chidalu Ibaro - Saxoharry"
+                                className="w-full h-full object-cover hover:scale-105 
+                                transition-transform duration-700"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#111724] 
+                            via-transparent to-transparent opacity-30"></div>
+                        </div>
+                    </motion.div>
+
+                </div>
+            </section>
+
+            <section id="gallery" className="bg-[#0B0F17] text-[#eef0f3] py-16 md:py-24 overflow-x-hidden">
+                <h2 className="text-4xl sm:text-5xl text-center font-bold font-['Abhaya_Libre'] tracking-wide mb-6">
+                    Services
+                </h2>
                 <motion.div
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 [20px]:grid-cols-4 xl:grid-cols-5 gap-4 mx-4 py-4"
                     variants={galleryContainerVariants}
@@ -188,43 +298,29 @@ const HomePage = () => {
                 className="py-16 md:py-24 bg-[#07090e] text-[#eef0f3] overflow-x-hidden"
             >
                 <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-12 items-center">
-
-                    {/* LEFT – Collage of Testimonial Givers */}
                     <motion.div
-                        className="w-full md:w-1/2 md:order-1 flex justify-center"
+                        className="hidden md:flex w-full md:w-1/2 md:order-1 justify-center items-center"
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         viewport={{ once: true, amount: 0.3 }}
                     >
-                        <div className="flex flex-wrap gap-6 sm:gap-10 justify-center items-center py-8">
-                            {testimonials.map((t, index) => {
-                                const rotation = index % 2 === 0 ? "rotate-3" : "-rotate-3";
-                                const isLarge = index === 0;
-                                const sizeClass = isLarge
-                                    ? "w-32 h-32 sm:w-44 sm:h-44"
-                                    : "w-20 h-20 sm:w-32 sm:h-32";
-
-                                return (
-                                    <div
-                                        key={index}
-                                        className={`flex ${rotation} hover:rotate-0 transition-transform duration-300`}
-                                    >
-                                        <div
-                                            aria-label={t.name}
-                                            className={`${sizeClass} border-4 border-black rounded-full shadow-lg bg-cover`}
-                                            style={{
-                                                backgroundImage: `url(${t.image})`,
-                                                backgroundPosition: "top center"
-                                            }}
-                                        />
-                                    </div>
-                                );
-                            })}
+                        <div className="relative w-full max-w-md h-[500px]">
+                            <AnimatePresence mode="wait" custom={direction}>
+                                <motion.img
+                                    key={currentTestimonial}
+                                    src={testimonials[currentTestimonial].image}
+                                    alt={testimonials[currentTestimonial].name}
+                                    custom={direction}
+                                    variants={testimonialVariants}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    className="w-full h-full object-cover rounded-3xl shadow-xl bg-gray-800 border-3 border-black"
+                                />
+                            </AnimatePresence>
                         </div>
                     </motion.div>
-
-                    {/* RIGHT – Testimonial Text + Controls */}
                     <motion.div
                         className="w-full md:w-1/2 md:order-2"
                         initial={{ opacity: 0, x: -50 }}
@@ -236,7 +332,21 @@ const HomePage = () => {
                             Testimonial From Our <span className="text-[#800020]">Beloved</span> Clients
                         </h2>
 
-                        {/* QUOTE + PERSON */}
+                        <div className="block md:hidden w-full mb-8 h-[350px]">
+                            <AnimatePresence mode="wait" custom={direction}>
+                                <motion.img
+                                    key={currentTestimonial}
+                                    src={testimonials[currentTestimonial].image}
+                                    alt={testimonials[currentTestimonial].name}
+                                    custom={direction}
+                                    variants={testimonialVariants}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    className="w-full h-full object-cover rounded-xl shadow-lg bg-gray-800 border-2 border-black"
+                                />
+                            </AnimatePresence>
+                        </div>
                         <div className="relative min-h-48">
                             <AnimatePresence initial={false} custom={direction}>
                                 <motion.div
@@ -270,8 +380,6 @@ const HomePage = () => {
                                 </motion.div>
                             </AnimatePresence>
                         </div>
-
-                        {/* CONTROLS */}
                         <div className="flex items-center gap-4 mt-8">
                             <button onClick={handlePrev} className="hover:opacity-70 transition-opacity">
                                 <img src="/icons/left_icon.png" alt="previous" className="w-8 sm:w-12" />
@@ -311,7 +419,8 @@ const HomePage = () => {
                                     onChange={(e) => setName(e.target.value)}
                                     placeholder="Stephanie"
                                     required
-                                    className="w-full text-sm p-3 border-2 border-black mt-2 focus:outline-none focus:ring-3 focus:ring-[#800020] font-['Josefin_Sans'] bg-transparent"
+                                    className="w-full text-sm p-3 border-2 border-[#800020] mt-2 focus:outline-none 
+                                    focus:ring-3 focus:ring-[#800020] font-['Josefin_Sans'] bg-transparent"
                                 />
                             </div>
                             <div>
@@ -324,7 +433,8 @@ const HomePage = () => {
                                     rows="5"
                                     placeholder="I'll like you to perform at..."
                                     required
-                                    className="w-full text-sm p-3 border-2 border-black mt-2 focus:outline-none focus:ring-3 focus:ring-[#800020] font-['Josefin_Sans'] bg-transparent"
+                                    className="w-full text-sm p-3 border-2 border-[#800020] mt-2 focus:outline-none 
+                                    focus:ring-3 focus:ring-[#800020] font-['Josefin_Sans'] bg-transparent"
                                 ></textarea>
                             </div>
                         </div>
@@ -332,7 +442,9 @@ const HomePage = () => {
                             type="button"
                             onClick={handleWhatsAppRedirect}
                             disabled={!name || !message}
-                            className="inline-block w-full border-2 border-black bg-[#800020] text-white mt-2 sm:mt-3 md:mt-4 px-7 py-3 text-sm sm:text-base hover:opacity-90 transition font-semibold tracking-wider disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="inline-block w-full border-2 border-black bg-[#800020] text-white 
+                            mt-2 sm:mt-3 md:mt-4 px-7 py-3 text-sm sm:text-base hover:opacity-90 transition 
+                            font-semibold tracking-wider disabled:opacity-50 disabled:cursor-not-allowed"
                             whileHover={!name || !message ? {} : buttonHover}
                         >
                             SEND INQUIRY
